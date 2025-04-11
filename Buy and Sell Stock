@@ -1,0 +1,21 @@
+public class Buysellstock {
+    public static int stock(int price[]){
+        int maxPrice = 0;
+        int buyPrice = Integer.MAX_VALUE;
+        for(int i=0; i<price.length; i++){
+            if(buyPrice < price[i]){
+                int profit = price[i] - buyPrice;
+                maxPrice = Math.max(profit, maxPrice);
+            }
+            else {
+                buyPrice = price[i];
+            }
+        }
+        return maxPrice;
+    }
+    public static void main(String args[]){
+        int price[] = {4, 2, 6, 1, 7, 3, 9};
+        int totalProfit = stock(price);
+        System.out.println("Maximum profit : "+ totalProfit);
+    }
+}
