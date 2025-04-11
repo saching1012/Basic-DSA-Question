@@ -1,5 +1,5 @@
 public class RainwaterTrapping {
-    public static int rainwaterTrapping(int height[]){
+    public static int rainwaterTrapping(int height[], int width){
         int n = height.length;
         // left boundary
         int left[] = new int[n];
@@ -19,14 +19,15 @@ public class RainwaterTrapping {
         int waterTrapped = 0; 
         for(int i=0; i<n; i++){
             int waterlevel = Math.min(left[i], right[i]);
-            waterTrapped += waterlevel-height[i];
+            waterTrapped += (waterlevel-height[i])*width;
         }
         return waterTrapped;
     }
     
     public static void main(String args[]){
         int height[] = {2, 4, 1, 5, 4};
-        int totalWater = rainwaterTrapping(height);
+        int width = 1;
+        int totalWater = rainwaterTrapping(height, width);
         System.out.println("Total amount of water trapped : "+ totalWater);
     }
 }
